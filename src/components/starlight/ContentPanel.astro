@@ -1,9 +1,11 @@
 ---
 import type { Props } from "../props";
+const currentUrl = Astro.url.href;
+const isFullWidth = currentUrl.includes("console-openapi")? "sl-container-full": '';
 ---
 
 <div class="content-panel content-panel-wrapper">
-  <div class="sl-container"><slot /></div>
+  <div class={`sl-container ${isFullWidth}`}><slot /></div>
 </div>
 
 <style is:global>
@@ -16,6 +18,10 @@ import type { Props } from "../props";
   .content-panel-wrapper {
     .sl-container {
       max-width: var(--sl-content-width);
+    }
+
+    .sl-container-full {
+      max-width: 100%;
     }
 
     .sl-container>(* + *) {
