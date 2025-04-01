@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "铭师堂的云原生升级实践",
-    "mobileText": "铭师堂的云原生升级实践",
-    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_rcexb7h4kq8u9ei9/?spm=5238cd80.66ce2cd4.0.0.237cf2120E3Lm5",
+    "text": "Nacos 发布 MCP Registry，实现存量应用接口“0改动”升级到 MCP 协议",
+    "mobileText": "Nacos 发布 MCP Registry，实现存量应用接口“0改动”升级到 MCP 协议",
+    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_vksfvdh9258pgddl/?spm=5238cd80.2ef5001f.0.0.18e83b7cNwiJH3\u0026source=blog",
     "target": "_blank",
     "display": true
 }
