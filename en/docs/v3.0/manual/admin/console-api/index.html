@@ -435,9 +435,9 @@ Server节点中的数据，从而实现自定义的Nacos控制台UI界面。</p>
 <h4 id="请求方式-6">请求方式</h4>
 <p><code dir="auto">GET</code></p>
 <h4 id="鉴权状态-6">鉴权状态</h4>
-<p>公开接口，无需身份信息。</p>
+<p>任意有效鉴权身份信息。</p>
 <blockquote>
-<p>由于命名空间是Nacos的基础隔离概念，因此大多数数据查询的接口都需要选择某个命名空间才能进行查询。因此，获取命名空间列表的能力应该是公开接口。</p>
+<p>由于命名空间是Nacos的基础隔离概念，因此大多数数据查询的接口都需要选择某个命名空间才能进行查询。因此，获取命名空间列表的能力应该是任意有效身份信息用户均可访问。</p>
 </blockquote>
 <h4 id="请求url-6">请求URL</h4>
 <p><code dir="auto">/v3/console/core/namespace/list</code></p>
@@ -770,7 +770,7 @@ Server节点中的数据，从而实现自定义的Nacos控制台UI界面。</p>
 <h4 id="请求方式-11">请求方式</h4>
 <p><code dir="auto">GET</code></p>
 <h4 id="鉴权状态-11">鉴权状态</h4>
-<p>公开接口，无需身份信息。</p>
+<p>任意有效鉴权身份信息。</p>
 <h4 id="请求url-11">请求URL</h4>
 <p><code dir="auto">/v3/console/core/namespace/exist</code></p>
 <h4 id="请求参数-11">请求参数</h4>
@@ -2826,7 +2826,7 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 <h4 id="请求方式-32">请求方式</h4>
 <p><code dir="auto">GET</code></p>
 <h4 id="鉴权状态-32">鉴权状态</h4>
-<p>公开接口，无需身份信息。</p>
+<p>任意有效鉴权身份信息。</p>
 <h4 id="请求url-32">请求URL</h4>
 <p><code dir="auto">/v3/console/ns/service/selector/types</code></p>
 <h4 id="请求参数-32">请求参数</h4>
