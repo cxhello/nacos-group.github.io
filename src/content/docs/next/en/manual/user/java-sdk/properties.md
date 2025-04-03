@@ -204,6 +204,16 @@ Nacos Java SDK 连接Nacos Server时，可以设置一系列的参数
 | nacos.remote.client.grpc.channel.keep.alive                     | 该Nacos Java SDK的GRPC连接对应的TCP Channel的Keep Alive时间，此时间应该大于`connect.keep.alive`,单位毫秒 | 任意int值  | 6 * 60 * 1000 |
 | nacos.remote.client.grpc.channel.keep.alive.timeout             | 该Nacos Java SDK的GRPC连接对应的TCP Channel的Keep Alive超时时间，单位毫秒                           | 任意Long值 | 20 * 1000     |
 | nacos.remote.client.grpc.channel.capability.negotiation.timeout | 该Nacos Java SDK的GRPC连接对应的TLS握手超时时间                                                 | 任意Long值 | 5000          |
+| nacos.remote.client.rpc.tls.enable                              | 是否启用TLS加密                                                                                          | 布尔值                       | false         |
+| nacos.remote.client.rpc.tls.provider                            | TLS提供者                                                                                                | OPENSSL，JDK，OPENSSL_REFCNT | 无            |
+| nacos.remote.client.rpc.tls.mutualAuth                          | 是否启用双向认证                                                                                         | 布尔值                       | false         |
+| nacos.remote.client.rpc.tls.protocols                           | TLS协议版本，多个版本用逗号分隔                                                                          | TLSv1，TLSv1.1，TLSv1.2      | 无            |
+| nacos.remote.client.rpc.tls.ciphers                             | 加密套件列表，多个套件用逗号分隔                                                                         | 任意字符串                   | 无            |
+| nacos.remote.client.rpc.tls.certChainFile                       | 证书文件路径                                                                                             | 任意字符串                   | 无            |
+| nacos.remote.client.rpc.tls.certPrivateKey                      | 私钥文件路径                                                                                             | 任意字符串                   | 无            |
+| nacos.remote.client.rpc.tls.certPrivateKeyPassword              | 如果私钥文件被密码保护，则需要在此指定该密码                                                             | 任意字符串                   | 无            |
+| nacos.remote.client.rpc.tls.trustCollectionChainPath            | 包含所有受信任CA证书的文件路径                                                                           | 任意字符串                   | 无            |
+| nacos.remote.client.rpc.tls.trustAll                            | 是否忽略所有证书的有效性检查                                                                             | 布尔值                       | false         |
 
 ### 2.5. 其他参数
 
