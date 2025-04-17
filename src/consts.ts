@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "Nacos 发布 MCP Registry，实现存量应用接口“0改动”升级到 MCP 协议",
-    "mobileText": "Nacos 发布 MCP Registry，实现存量应用接口“0改动”升级到 MCP 协议",
-    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_vksfvdh9258pgddl/?spm=5238cd80.2ef5001f.0.0.18e83b7cNwiJH3\u0026source=blog",
+    "text": "下载《AI 应用 \u0026 AI Agent 开发新范式》电子书，了解构建 AI Agent 和 MCP Server 的一线实践",
+    "mobileText": "下载《AI 应用 \u0026 AI Agent 开发新范式》电子书，了解构建 AI Agent 和 MCP Server 的一线实践",
+    "link": "https://developer.aliyun.com/ebook/8442",
     "target": "_blank",
     "display": true
 }
