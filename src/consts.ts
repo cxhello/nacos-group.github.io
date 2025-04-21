@@ -6,8 +6,8 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "下载《AI 应用 \u0026 AI Agent 开发新范式》电子书  了解构建 AI Agent 和 MCP Server 的一线实践",
-    "mobileText": "下载《AI 应用 \u0026 AI Agent 开发新范式》电子书  了解构建 AI Agent 和 MCP Server 的一线实践",
+    "text": "免费下载《AI 应用 \u0026 AI Agent 开发新范式》 高效构建 AI Agent 和 MCP Server",
+    "mobileText": "免费下载《AI 应用 \u0026 AI Agent 开发新范式》 高效构建 AI Agent 和 MCP Server",
     "link": "https://developer.aliyun.com/ebook/8442",
     "target": "_blank",
     "display": true
