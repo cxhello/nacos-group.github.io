@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "免费下载《 AI 应用 \u0026 AI Agent 开发新范式》 高效构建 AI Agent 和 MCP Server",
-    "mobileText": "免费下载《 AI 应用 \u0026 AI Agent 开发新范式》 高效构建 AI Agent 和 MCP Server",
-    "link": "https://developer.aliyun.com/ebook/8442",
+    "text": "Nacos 3.0 正式发布：MCP Registry、安全零信任、链接更多生态",
+    "mobileText": "Nacos 3.0 正式发布：MCP Registry、安全零信任、链接更多生态",
+    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_gg16sv97bgirkixe/",
     "target": "_blank",
     "display": true
 }
