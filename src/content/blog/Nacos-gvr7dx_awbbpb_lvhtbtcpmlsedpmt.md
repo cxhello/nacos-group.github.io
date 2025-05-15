@@ -2,7 +2,7 @@
 title: "Nacos 邀您报名 2025 开源之夏"
 description: "Nacos 邀您报名 2025 开源之夏"
 date: "2025-05-09"
-category: "event"
+category: "announcement"
 keywords: ["Nacos"]
 authors: "CH3CHO"
 ---
