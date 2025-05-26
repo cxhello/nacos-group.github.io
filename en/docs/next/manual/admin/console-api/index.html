@@ -3681,7 +3681,7 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
-<table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">mcpId</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的ID，一般为UUID</td></tr><tr><td><code dir="auto">mcpName</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的名字模版</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的版本，未传入是返回最新版本</td></tr></tbody></table>
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">mcpId</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的ID，一般为UUID，与<code dir="auto">mcpName</code>二选一输入，建议传入此值。</td></tr><tr><td><code dir="auto">mcpName</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的名字模版，与<code dir="auto">mcpId</code>二选一输入，建议传入<code dir="auto">mcpId</code>。</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的版本，未传入是返回最新版本</td></tr></tbody></table>
 <h4 id="返回数据-39">返回数据</h4>
 <p>返回体遵循<a href="#01-%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E4%BD%93%E6%A0%BC%E5%BC%8F" referrerpolicy="unsafe-url">Nacos open API 统一返回体格式</a>，下表只阐述<code dir="auto">data</code>字段中的返回参数。</p>
 
@@ -3769,6 +3769,8 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID。</td></tr><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">String</code></td><td>MCP服务所属的命名空间ID。</td></tr><tr><td><code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">versionDetail</code></td><td><code dir="auto">VersionDetail</code></td><td>MCP服务所查询的版本信息。</td></tr><tr><td><code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP服务是否启用。</td></tr><tr><td><code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr><tr><td><code dir="auto">backendEndpoints</code></td><td><code dir="auto">List</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录访问远端服务的具体地址信息。</td></tr><tr><td><code dir="auto">toolSpec</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务支持的能力类型包含<code dir="auto">TOOL</code>时，存在此信息，记录工具的详细配置信息。</td></tr><tr><td><code dir="auto">allVersions</code></td><td><code dir="auto">List&#x3C;VersionDetail></code></td><td>MCP服务的所有版本详情的列表。</td></tr></tbody></table>
+<p>其中<code dir="auto">VersionDetail</code>结构如下：</p>
 
 
 
@@ -3779,7 +3781,22 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
-<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID。</td></tr><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">versionDetail</code></td><td><code dir="auto">Object</code></td><td>MCP服务的版本信息。</td></tr><tr><td><code dir="auto">versionDetail</code>.<code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">versionDetail</code>.<code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">versionDetail</code>.<code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr><tr><td><code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">credentials</code></td><td><code dir="auto">List</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录访问远端服务的身份敏感信息。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP服务是否启用。</td></tr><tr><td><code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr><tr><td><code dir="auto">backendEndpoints</code></td><td><code dir="auto">List</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录访问远端服务的具体地址信息。</td></tr><tr><td><code dir="auto">toolSpec</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务支持的能力类型包含<code dir="auto">TOOL</code>时，存在此信息，记录工具的详细配置信息。</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr></tbody></table>
 <h4 id="示例-39">示例</h4>
 <ul>
 <li>请求示例</li>
@@ -3835,6 +3852,210 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 <table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">serverSpecification</code></td><td><code dir="auto">jsonString</code></td><td><strong>是</strong></td><td>MCP服务的描述详情</td></tr><tr><td><code dir="auto">toolSpecification</code></td><td><code dir="auto">jsonString</code></td><td>否</td><td>MCP服务的工具描述详情</td></tr><tr><td><code dir="auto">endpointSpecification</code></td><td><code dir="auto">jsonString</code></td><td>否</td><td>MCP服务的远端服务地址详情，仅在非<code dir="auto">stdio</code>协议时生效</td></tr></tbody></table>
+<p>其中<code dir="auto">serverSpecification</code>、<code dir="auto">toolSpecification</code>、<code dir="auto">endpointSpecification</code>参数的详细内容如下：</p>
+<blockquote>
+<p>serverSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID，必须传入，用于定位待更新的MCP服务。</td></tr><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">versionDetail</code></td><td><code dir="auto">VersionDetail</code></td><td>MCP服务的版本信息。</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的简易版本版本信息，主要用于兼容，若已设置<code dir="auto">versionDetail</code>,则该字段无效。</td></tr><tr><td><code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP服务是否启用。</td></tr><tr><td><code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr></tbody></table>
+<p>其中<code dir="auto">VersionDetail</code>结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr></tbody></table>
+<blockquote>
+<p>toolSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">tools</code></td><td><code dir="auto">List&#x3C;McpTool></code></td><td>该MCP Server所提供的工具列表，参考标准MCP协议中对于MCP Tool的定义</td></tr><tr><td><code dir="auto">toolsMeta</code></td><td><code dir="auto">Map&#x3C;String, McpToolMeta></code></td><td>该MCP Server所提供的工具的额外元数据信息，可用于扩展标准MCP协议中未定义但又使用中需要的信息。key为<code dir="auto">McpTool</code>的<code dir="auto">name</code>, value为拓展元数据。</td></tr></tbody></table>
+<p>其中<code dir="auto">McpTool</code>结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP 工具的名称</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP 工具的描述</td></tr><tr><td><code dir="auto">inputSchema</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP工具的入参描述，参考标准MCP协议，主要包含，<code dir="auto">类型</code>,<code dir="auto">是否必须</code>,<code dir="auto">描述</code> 等。</td></tr></tbody></table>
+<p>其中<code dir="auto">McpToolMeta</code> 结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">invokeContext</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP 工具调用时的上下文信息，如后端服务的<code dir="auto">Path</code>等。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP工具是否启用。</td></tr><tr><td><code dir="auto">templates</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP工具的模板信息。用于进行协议转换时进行参数的映射。</td></tr></tbody></table>
+<blockquote>
+<p>endpointSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">type</code></td><td><code dir="auto">String</code></td><td>MCP endpoint的后端服务类型，可选值<code dir="auto">REF</code>和<code dir="auto">DIRECT</code>.</td></tr><tr><td><code dir="auto">data</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP endpoint的后端服务的实际数据， 根据<code dir="auto">type</code>的不同，传入的参数不同，如<code dir="auto">REF</code>传入的为<code dir="auto">namespaceId</code>, <code dir="auto">groupName</code> 和 <code dir="auto">serviceName</code>；<code dir="auto">DIRECT</code>传入的为<code dir="auto">address</code> 和 <code dir="auto">port</code>。</td></tr></tbody></table>
 <h4 id="返回数据-40">返回数据</h4>
 <p>返回体遵循<a href="#01-%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E4%BD%93%E6%A0%BC%E5%BC%8F" referrerpolicy="unsafe-url">Nacos open API 统一返回体格式</a>，下表只阐述<code dir="auto">data</code>字段中的返回参数。</p>
 
@@ -3908,6 +4129,210 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 <table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">serverSpecification</code></td><td><code dir="auto">jsonString</code></td><td><strong>是</strong></td><td>MCP服务的描述详情</td></tr><tr><td><code dir="auto">toolSpecification</code></td><td><code dir="auto">jsonString</code></td><td>否</td><td>MCP服务的工具描述详情</td></tr><tr><td><code dir="auto">endpointSpecification</code></td><td><code dir="auto">jsonString</code></td><td>否</td><td>MCP服务的远端服务地址详情，仅在非<code dir="auto">stdio</code>协议时生效</td></tr></tbody></table>
+<p>其中<code dir="auto">serverSpecification</code>、<code dir="auto">toolSpecification</code>、<code dir="auto">endpointSpecification</code>参数的详细内容如下：</p>
+<blockquote>
+<p>serverSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID，无需传入，系统自动生成。</td></tr><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">versionDetail</code></td><td><code dir="auto">VersionDetail</code></td><td>MCP服务的版本信息。</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的简易版本版本信息，主要用于兼容，若已设置<code dir="auto">versionDetail</code>,则该字段无效。</td></tr><tr><td><code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP服务是否启用。</td></tr><tr><td><code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr></tbody></table>
+<p>其中<code dir="auto">VersionDetail</code>结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr></tbody></table>
+<blockquote>
+<p>toolSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">tools</code></td><td><code dir="auto">List&#x3C;McpTool></code></td><td>该MCP Server所提供的工具列表，参考标准MCP协议中对于MCP Tool的定义</td></tr><tr><td><code dir="auto">toolsMeta</code></td><td><code dir="auto">Map&#x3C;String, McpToolMeta></code></td><td>该MCP Server所提供的工具的额外元数据信息，可用于扩展标准MCP协议中未定义但又使用中需要的信息。key为<code dir="auto">McpTool</code>的<code dir="auto">name</code>, value为拓展元数据。</td></tr></tbody></table>
+<p>其中<code dir="auto">McpTool</code>结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP 工具的名称</td></tr><tr><td><code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP 工具的描述</td></tr><tr><td><code dir="auto">inputSchema</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP工具的入参描述，参考标准MCP协议，主要包含，<code dir="auto">类型</code>,<code dir="auto">是否必须</code>,<code dir="auto">描述</code> 等。</td></tr></tbody></table>
+<p>其中<code dir="auto">McpToolMeta</code> 结构如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">invokeContext</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP 工具调用时的上下文信息，如后端服务的<code dir="auto">Path</code>等。</td></tr><tr><td><code dir="auto">enabled</code></td><td><code dir="auto">boolean</code></td><td>MCP工具是否启用。</td></tr><tr><td><code dir="auto">templates</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP工具的模板信息。用于进行协议转换时进行参数的映射。</td></tr></tbody></table>
+<blockquote>
+<p>endpointSpecification</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">type</code></td><td><code dir="auto">String</code></td><td>MCP endpoint的后端服务类型，可选值<code dir="auto">REF</code>和<code dir="auto">DIRECT</code>.</td></tr><tr><td><code dir="auto">data</code></td><td><code dir="auto">Map&#x3C;String, String></code></td><td>MCP endpoint的后端服务的实际数据， 根据<code dir="auto">type</code>的不同，传入的参数不同，如<code dir="auto">REF</code>传入的为<code dir="auto">namespaceId</code>, <code dir="auto">groupName</code> 和 <code dir="auto">serviceName</code>；<code dir="auto">DIRECT</code>传入的为<code dir="auto">address</code> 和 <code dir="auto">port</code>。</td></tr></tbody></table>
 <h4 id="返回数据-41">返回数据</h4>
 <p>返回体遵循<a href="#01-%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E4%BD%93%E6%A0%BC%E5%BC%8F" referrerpolicy="unsafe-url">Nacos open API 统一返回体格式</a>，下表只阐述<code dir="auto">data</code>字段中的返回参数。</p>
 
@@ -3980,7 +4405,7 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
-<table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">mcpId</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的ID，一般为UUID</td></tr><tr><td><code dir="auto">mcpName</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的名字模版</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的版本，未传入是为最新版本</td></tr></tbody></table>
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>是否必填</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">namespaceId</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的命名空间ID，默认为<code dir="auto">public</code></td></tr><tr><td><code dir="auto">mcpId</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的ID，一般为UUID，与<code dir="auto">mcpName</code>二选一输入，建议传入此值。</td></tr><tr><td><code dir="auto">mcpName</code></td><td><code dir="auto">string</code></td><td><strong>是</strong></td><td>MCP服务的名字模版，与<code dir="auto">mcpId</code>二选一输入，建议传入<code dir="auto">mcpId</code>。</td></tr><tr><td><code dir="auto">version</code></td><td><code dir="auto">string</code></td><td>否</td><td>MCP服务的版本，未传入是为最新版本</td></tr></tbody></table>
 <h4 id="返回数据-42">返回数据</h4>
 <p>返回体遵循<a href="#01-%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E4%BD%93%E6%A0%BC%E5%BC%8F" referrerpolicy="unsafe-url">Nacos open API 统一返回体格式</a>，下表只阐述<code dir="auto">data</code>字段中的返回参数。</p>
 
@@ -4152,6 +4577,8 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">totalCount</code></td><td><code dir="auto">int</code></td><td>符合条件的服务的总数。</td></tr><tr><td><code dir="auto">pageNumber</code></td><td><code dir="auto">int</code></td><td>当前页码，起始为<code dir="auto">1</code>。</td></tr><tr><td><code dir="auto">pagesAvailable</code></td><td><code dir="auto">int</code></td><td>可用页码。</td></tr><tr><td><code dir="auto">pageItems</code></td><td><code dir="auto">List</code></td><td>服务列表。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetail</code></td><td><code dir="auto">VersionDetail</code></td><td>MCP服务当前最新的版本信息。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">latestPublishedVersion</code></td><td><code dir="auto">String</code></td><td>MCP服务最新版本的版本号。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetails</code></td><td><code dir="auto">List&#x3C;VersionDetail></code></td><td>MCP服务版本详情的列表。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr></tbody></table>
+<p>其中<code dir="auto">VersionDetail</code>结构如下：</p>
 
 
 
@@ -4167,7 +4594,17 @@ attachment模式，导出失败时返回体遵循<a href="../../user/open-api/#1
 
 
 
-<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">totalCount</code></td><td><code dir="auto">int</code></td><td>符合条件的服务的总数。</td></tr><tr><td><code dir="auto">pageNumber</code></td><td><code dir="auto">int</code></td><td>当前页码，起始为<code dir="auto">1</code>。</td></tr><tr><td><code dir="auto">pagesAvailable</code></td><td><code dir="auto">int</code></td><td>可用页码。</td></tr><tr><td><code dir="auto">pageItems</code></td><td><code dir="auto">List</code></td><td>服务列表。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">id</code></td><td><code dir="auto">String</code></td><td>MCP服务的ID，一般为UUID。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">name</code></td><td><code dir="auto">String</code></td><td>MCP服务名。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">protocol</code></td><td><code dir="auto">String</code></td><td>MCP的协议，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">frontProtocol</code></td><td><code dir="auto">String</code></td><td>MCP的前端暴露协议，一般是提供给协议转换器（如网关）使用，若无转换器，则与<code dir="auto">protocol</code>相同，如<code dir="auto">stdio</code>,<code dir="auto">sse</code>,<code dir="auto">streamable</code>,<code dir="auto">http</code>,<code dir="auto">dubbo</code>等。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">description</code></td><td><code dir="auto">String</code></td><td>MCP服务的描述。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">repository</code></td><td><code dir="auto">String</code></td><td>MCP服务的存储仓库。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetail</code></td><td><code dir="auto">Object</code></td><td>MCP服务的版本信息。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetail</code>.<code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetail</code>.<code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetail</code>.<code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">localServerConfig</code></td><td><code dir="auto">Map&#x3C;String, Object></code></td><td>MCP服务若类型为<strong>stdio</strong>，存在此信息，记录本地MCP服务的启动信息。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">remoteServerConfig</code></td><td><code dir="auto">RemoteServerConfig</code></td><td>MCP服务若类型为<strong>非stdio</strong>，存在此信息，记录远端服务的信息 。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">latestPublishedVersion</code></td><td><code dir="auto">String</code></td><td>MCP服务最新版本的版本号。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">versionDetails</code></td><td><code dir="auto">List&#x3C;versionDetail></code></td><td>MCP服务版本详情的列表。</td></tr><tr><td><code dir="auto">pageItems</code>[i].<code dir="auto">capabilities</code></td><td><code dir="auto">List</code></td><td>MCP服务支持的能力类型，如<code dir="auto">TOOL</code>,<code dir="auto">PROMPT</code>,<code dir="auto">RESOURCE</code>。</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名</th><th>参数类型</th><th>描述</th></tr></thead><tbody><tr><td><code dir="auto">version</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本号。</td></tr><tr><td><code dir="auto">release_date</code></td><td><code dir="auto">String</code></td><td>MCP服务的版本发布时间。</td></tr><tr><td><code dir="auto">is_latest</code></td><td><code dir="auto">boolean</code></td><td>MCP服务的版本是否为最新版本。</td></tr></tbody></table>
 <h4 id="示例-43">示例</h4>
 <ul>
 <li>请求示例</li>
