@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "开启报名｜Nacos3.0 开源开发者沙龙 Agent\u0026MCP 专场",
-    "mobileText": "开启报名｜Nacos3.0 开源开发者沙龙 Agent\u0026MCP 专场",
-    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_to2k53t2lzzkmqw8/",
+    "text": "Nacos MCP Router 新版发布：支持 Docker 远程部署 多通信协议相互转换",
+    "mobileText": "Nacos MCP Router 新版发布：支持 Docker 远程部署 多通信协议相互转换",
+    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_qdi918msnqbvonx2/",
     "target": "_blank",
     "display": true
 }
