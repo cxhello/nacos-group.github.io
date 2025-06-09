@@ -6,8 +6,8 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "Nacos3.0开源开发者沙龙·上海站 Agent \u0026 MCP专场 PPT 下载",
-    "mobileText": "Nacos3.0开源开发者沙龙·上海站 Agent \u0026 MCP专场 PPT 下载",
+    "text": "Nacos3.0 开源开发者沙龙·上海站 Agent \u0026 MCP 专场 PPT 下载",
+    "mobileText": "Nacos3.0 开源开发者沙龙·上海站 Agent \u0026 MCP 专场 PPT 下载",
     "link": "https://developer.aliyun.com/ebook/8446",
     "target": "_blank",
     "display": true
