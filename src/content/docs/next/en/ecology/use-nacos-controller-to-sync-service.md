@@ -1,7 +1,7 @@
 ---
-title: Nacos MCP Router 使用手册
-keywords: [Nacos MCP Router,MCP,使用手册]
-description: Nacos MCP Router 使用手册
+title: 使用Nacos Controller同步k8s服务到Nacos
+keywords: [Nacos Controller,使用手册]
+description: Nacos Controller 使用手册
 sidebar:
     order: 10
 ---
