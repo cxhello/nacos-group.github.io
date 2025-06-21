@@ -1,0 +1,1 @@
+function a(t){const n=t.match(/\/([a-z]{2}-?[a-z]{0,2})/);return n?n[1]:"zh-cn"}const e=()=>{var n;const t=(n=navigator==null?void 0:navigator.userAgent)==null?void 0:n.toLowerCase();return t.includes("safari")&&!t.includes("chrome")};export{a as g,e as i};
