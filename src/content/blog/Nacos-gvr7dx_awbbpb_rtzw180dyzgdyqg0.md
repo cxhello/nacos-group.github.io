@@ -18,4 +18,8 @@ authors: "CH3CHO"
 + <font style="color:rgb(0, 0, 0);">报名地址：</font>[https://survey.aliyun.com/apps/zhiliao/gLpXZCeib](https://survey.aliyun.com/apps/zhiliao/gLpXZCeib) <font style="color:rgb(0, 0, 0);"> </font>
 + <font style="color:rgb(0, 0, 0);">活动议程如下：</font>
 
-![](https://intranetproxy.alipay.com/skylark/lark/0/2025/png/169256735/1750988332325-ee264e84-750a-4b41-a361-b379583a00bb.png)
+
+
+![](https://intranetproxy.alipay.com/skylark/lark/0/2025/png/169256735/1751341860780-749e18c8-8a88-412f-9eb4-8fccab738350.png)
+
+
