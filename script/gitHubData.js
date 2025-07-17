@@ -23,20 +23,20 @@ const request = async (url, headers={}) => {
 
 let res = await request("https://api.github.com/repos/alibaba/nacos/contributors?per_page=24")
 
-if (res.error) return;
+if (!res.error) {
+    let contributors = res.map(v => {
+        return {
+            login: v.login,
+            avatar_url: v.avatar_url,
+            html_url: v.html_url
+        }
+    })
+    
+    getAvatar(contributors);
+    
+    const curFilename = fileURLToPath(import.meta.url);
+    const curDirname = path.dirname(curFilename);
+    const runtimePath = path.join(curDirname, '../src/components/contributors/gitHubData.json');
+    await fs.writeFile(runtimePath, JSON.stringify(contributors));
 
-let contributors = res.map(v => {
-    return {
-        login: v.login,
-        avatar_url: v.avatar_url,
-        html_url: v.html_url
-    }
-})
-
-getAvatar(contributors);
-
-const curFilename = fileURLToPath(import.meta.url);
-const curDirname = path.dirname(curFilename);
-const runtimePath = path.join(curDirname, '../src/components/contributors/gitHubData.json');
-await fs.writeFile(runtimePath, JSON.stringify(contributors));
-
+}
