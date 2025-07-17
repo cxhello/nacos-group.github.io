@@ -6,16 +6,24 @@ import getAvatar from "./getAvatar.js";
 
 const request = async (url, headers={}) => {
     const res = await fetch(url, {headers});
-    if (!res.ok) throw new Error(res.statusText);
+    if (!res.ok) {
+        return {
+            error: res.statusText
+        }
+    };
     const data = await res.json();
     if (data.error) {
-        throw new Error(data.error)
+        return {
+            error: data.error
+        }
     } else {
         return data;
     }
 };
 
 let res = await request("https://api.github.com/repos/alibaba/nacos/contributors?per_page=24")
+
+if (res.error) return;
 
 let contributors = res.map(v => {
     return {
