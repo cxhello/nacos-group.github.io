@@ -105,7 +105,8 @@ docker-compose -f example/standalone-derby.yaml up
 或
 
 ```powershell
-docker-compose -f example/standalone-mysql.yaml up
+cd example
+./mysql-init.sh && docker-compose -f standalone-mysql.yaml up
 ```
 
 其他`example`目录下的文件，可参考[Nacos Docker](https://github.com/nacos-group/nacos-docker/tree/master/example)
