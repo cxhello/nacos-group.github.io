@@ -41,6 +41,7 @@ JAVA_OPT="${JAVA_OPT} -Dnacos.home=${BASE_DIR}"
 | nacos.server.main.port                  | Nacos Server 的端口，替代之前的`server.port`                                                        | 正整数              | 8848       |
 | nacos.server.contextPath                | Nacos Server 的Web Servlet上下文路径, 替代之前的`server.servlet.context-path`                         | 任意路径             | /nacos     |
 | spring.config.additional-location       | Nacos Server 的额外配置文件路径，除`{nacos.home}/conf/application.properties`外，用户可以添加额外的配置文件          | 文件路径，多个文件路径用逗号分隔 | null       | 
+| nacos.remote.grpc.listen.ip(-D)         | Nacos Server Grpc Port LISTEN IP，Nacos 服务端 Grpc 监听IP，默认绑定全零IP                              | 本机IP             | null       |
 
 #### 1.1.2. 数据库
 
