@@ -6,9 +6,9 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 
 // 吊顶提示文案
 export const TOPBAR = {
-    "text": "Nacos3.0开源开发者沙龙·杭州站 Agent \u0026 MCP专场 PPT 下载",
-    "mobileText": "Nacos3.0开源开发者沙龙·杭州站 Agent \u0026 MCP专场 PPT 下载",
-    "link": "https://developer.aliyun.com/ebook/8451",
+    "text": "新一代 Agentic Coding 平台 Qoder 来了",
+    "mobileText": "新一代 Agentic Coding 平台 Qoder 来了",
+    "link": "https://qoder.com/",
     "target": "_blank",
     "display": true
 }
