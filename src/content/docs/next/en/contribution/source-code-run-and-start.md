@@ -51,8 +51,8 @@ Navigate to the `bootstrap` directory of the Nacos project and execute the Maven
 The specific command is as follows:
 
 ```bash
-cd nacos/bootstrap
-mvn clean package -Prelease-nacos
+cd nacos
+mvn clean package -Prelease-nacos --projects bootstrap --also-make -DskipTests
 ```
 
 ### Step 4: Verify the JAR File

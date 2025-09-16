@@ -51,8 +51,8 @@ mysql -V
 具体命令如下：
 
 ```bash
-cd nacos/bootstrap
-mvn clean package -Prelease-nacos
+cd nacos
+mvn clean package -Prelease-nacos --projects bootstrap --also-make -DskipTests
 ```
 
 ### 步骤四：验证jar包是否正确
