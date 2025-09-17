@@ -72,7 +72,7 @@ db.password=${MYSQL_PASSWORD}
 Start `Nacos-bootstrap` and specify the `nacos.deployment.type` parameter as `merged`. The startup command is as follows:
 
 ```bash
-distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone
+distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone -d merged
 ```
 
 > On first launch, the system will prompt you to configure authentication parameters such as `nacos.core.auth.plugin.nacos.token.secret.key`, `nacos.core.auth.server.identity.key`, and `nacos.core.auth.server.identity.value`. Follow the instructions to complete them.
@@ -80,6 +80,16 @@ distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone
 ### Step 5: Verify Whether Nacos-Bootstrap Has Started Successfully
 
 Access `http://127.0.0.1:8080` in your browser. If a login page appears, it means that Nacos-Bootstrap has started successfully.
+
+### Local IDEA Startup
+
+Add VM options
+
+```
+-Dnacos.standalone=true -Dnacos.deployment.type=merged
+```
+
+[img.png](../../../../../../public/img/local-idea-start.png)
 
 ### Explanation
 
