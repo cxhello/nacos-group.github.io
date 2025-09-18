@@ -89,7 +89,7 @@ Add VM options
 -Dnacos.standalone=true -Dnacos.deployment.type=merged
 ```
 
-[img.png](../../../../../../public/img/local-idea-start.png)
+![img.png](/img/local-idea-start.png)
 
 ### 解释
 
