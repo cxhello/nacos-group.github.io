@@ -72,7 +72,7 @@ db.password=${MYSQL_PASSWORD}
 启动`Nacos-bootstrap`，并指定`nacos.deployment.type`参数为`merged`，启动命令如下：
 
 ```bash
-distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone
+distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone -d merged
 ```
 
 > 首次启动会引导填写鉴权相关的一些配置参数，`nacos.core.auth.plugin.nacos.token.secret.key`, `nacos.core.auth.server.identity.key` 和 `nacos.core.auth.server.identity.value`, 请按照引导进行填写.
@@ -80,6 +80,16 @@ distribution/target/nacos-server-${version}/nacos/bin/startup.sh -m standalone
 ### 步骤五：验证Nacos-bootstrap是否启动成功
 
 在浏览器中访问`http://127.0.0.1:8080`，如果出现登录页面面则说明Nacos-bootstrap启动成功。
+
+### 本地IDEA启动
+
+Add VM options
+
+```
+-Dnacos.standalone=true -Dnacos.deployment.type=merged
+```
+
+![img.png](/img/local-idea-start.png)
 
 ### 解释
 
