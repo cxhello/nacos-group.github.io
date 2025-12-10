@@ -8,7 +8,7 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 export const TOPBAR = {
     "text": "AgentScope Java v1.0 重磅发布",
     "mobileText": "AgentScope Java v1.0 重磅发布",
-    "link": "https://mp.weixin.qq.com/s/vtb3t0JnSTau3XM6wJMEkw",
+    "link": "https://nacos.io/blog/nacos-gvr7dx_awbbpb_ghgh5gf3bfnh1unp",
     "target": "_blank",
     "display": true
 }
