@@ -110,7 +110,7 @@ Higress-AI网关的部署可参考参考[Higress Docker 快速开始](https://hi
 ```yaml
 apiVersion: v1
 kind: ConfigMap
-metadata:fi
+metadata:
   ...
 data:
   higress: |-
